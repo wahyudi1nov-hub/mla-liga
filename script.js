@@ -8,7 +8,6 @@ const supabaseClient = supabase.createClient(
 
 const form =
 document.getElementById("registrationForm");
-const form = document.getElementById("registrationForm");
 
 const success = document.getElementById("success");
 
