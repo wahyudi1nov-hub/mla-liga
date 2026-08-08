@@ -1,3 +1,13 @@
+const SUPABASE_URL = "https://xmrpxgwrcacrgjbcrkox.supabase.co";
+const SUPABASE_KEY = "sb_publishable_VlIwkF1skpT_3imZRViL7A_sagS8ZSg";
+
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+const form =
+document.getElementById("registrationForm");
 const form = document.getElementById("registrationForm");
 
 const success = document.getElementById("success");
