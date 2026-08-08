@@ -1,0 +1,1053 @@
+:root {
+  --navy: #06182f;
+  --navy-2: #0b2546;
+  --white: #ffffff;
+  --soft: #f3f6fa;
+  --text: #10233c;
+  --gray: #718096;
+  --line: #dce4ec;
+  --dark: #040e1c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--soft);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  height: 76px;
+  background: var(--navy);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.nav-inner {
+  width: min(1180px, calc(100% - 40px));
+  height: 100%;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand img {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+}
+
+.season {
+  color: #8fa6bf;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.season b {
+  color: white;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+  min-height: 530px;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  background:
+    radial-gradient(
+      circle at 80% 45%,
+      rgba(36,82,130,.65),
+      transparent 35%
+    ),
+    linear-gradient(
+      125deg,
+      #041226,
+      #092442 60%,
+      #0d3157
+    );
+}
+
+.hero-pattern {
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  right: -280px;
+  top: -230px;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  transform: rotate(25deg);
+}
+
+.hero-pattern::before {
+  content: "";
+
+  position: absolute;
+  inset: 70px;
+
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+.hero-pattern::after {
+  content: "";
+
+  position: absolute;
+  inset: 140px;
+
+  border: 1px solid rgba(255,255,255,.05);
+}
+
+.hero-content {
+  width: min(1180px, calc(100% - 40px));
+  margin: auto;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ================= LOGO ANIMATION ================= */
+
+.hero-logo {
+  width: 235px;
+  height: 235px;
+
+  object-fit: contain;
+  display: block;
+
+  margin-left: -20px;
+
+  filter:
+    drop-shadow(
+      0 20px 35px rgba(0,0,0,.45)
+    );
+
+  animation:
+    logoFloat 4s ease-in-out infinite,
+    logoReveal 1s ease-out forwards;
+}
+
+@keyframes logoFloat {
+
+  0%,100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-12px) scale(1.02);
+  }
+
+}
+
+@keyframes logoReveal {
+
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+
+/* ================= TAG ================= */
+
+.tag {
+  display: inline-block;
+
+  padding: 7px 12px;
+
+  background: white;
+  color: var(--navy);
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  animation:
+    tagReveal .8s ease-out .25s both,
+    tagFloat 3s ease-in-out 1.2s infinite;
+}
+
+@keyframes tagReveal {
+
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+@keyframes tagFloat {
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+
+}
+
+
+/* ================= SEASON ================= */
+
+.hero h1 {
+  margin-top: 15px;
+
+  color: white;
+
+  font-family: "Barlow Condensed";
+
+  font-size: clamp(60px, 8vw, 95px);
+
+  line-height: .75;
+
+  font-weight: 900;
+
+  letter-spacing: -2px;
+
+  animation:
+    seasonReveal 1s ease-out .45s both;
+}
+
+.hero h1 span {
+  color: #aebfd2;
+
+  animation:
+    seasonGlow 3s ease-in-out 1.5s infinite;
+}
+
+@keyframes seasonReveal {
+
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+}
+
+@keyframes seasonGlow {
+
+  0%,100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .65;
+  }
+
+}
+
+.hero p {
+  max-width: 480px;
+
+  margin-top: 20px;
+
+  color: #9db0c5;
+
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+
+/* ================= HERO INFO ================= */
+
+.hero-info {
+  display: flex;
+  margin-top: 28px;
+}
+
+.hero-info div {
+  min-width: 125px;
+
+  padding-right: 25px;
+  margin-right: 25px;
+
+  border-right: 1px solid rgba(255,255,255,.15);
+}
+
+.hero-info div:last-child {
+  border: 0;
+}
+
+.hero-info small {
+  display: block;
+
+  color: #7990a9;
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.hero-info strong {
+  display: block;
+
+  margin-top: 4px;
+
+  color: white;
+
+  font-family: "Barlow Condensed";
+
+  font-size: 26px;
+}
+
+
+/* ================= REGISTRATION ================= */
+
+.registration {
+  padding: 90px 0;
+  background: white;
+}
+
+.container {
+  width: min(900px, calc(100% - 40px));
+  margin: auto;
+}
+
+.heading {
+  margin-bottom: 55px;
+}
+
+.heading > span {
+  color: #71859c;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+.heading h2 {
+  margin-top: 10px;
+
+  color: var(--navy);
+
+  font-family: "Barlow Condensed";
+
+  font-size: 65px;
+
+  line-height: .8;
+}
+
+.heading h2 strong {
+  color: var(--navy-2);
+}
+
+.heading p {
+  max-width: 500px;
+
+  margin-top: 20px;
+
+  color: var(--gray);
+
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+
+/* ================= FORM ================= */
+
+.form-section {
+  display: grid;
+
+  grid-template-columns: 45px 1fr;
+
+  gap: 20px;
+
+  padding: 35px 0;
+
+  border-top: 1px solid var(--line);
+}
+
+.section-number {
+  color: var(--navy-2);
+
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.section-content h3 {
+  margin-bottom: 25px;
+
+  color: var(--navy);
+
+  font-family: "Barlow Condensed";
+
+  font-size: 25px;
+}
+
+.grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 16px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group.full {
+  grid-column: 1 / -1;
+}
+
+.input-group label,
+.upload label {
+  margin-bottom: 8px;
+
+  color: #52677e;
+
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.input-group input {
+  width: 100%;
+  height: 48px;
+
+  padding: 0 14px;
+
+  border: 1px solid var(--line);
+
+  outline: none;
+
+  background: #f8fafc;
+
+  color: var(--navy);
+
+  font-size: 11px;
+}
+
+.input-group input:focus {
+  border-color: var(--navy-2);
+  background: white;
+}
+
+
+/* ================= ROSTER ================= */
+
+.roster {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.player {
+  display: grid;
+
+  grid-template-columns: 45px 1fr;
+
+  height: 48px;
+}
+
+.player span {
+  display: grid;
+  place-items: center;
+
+  background: var(--navy);
+
+  color: white;
+
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.player input {
+  border: 1px solid var(--line);
+  border-left: 0;
+
+  padding: 0 14px;
+
+  outline: none;
+
+  background: #f8fafc;
+
+  color: var(--navy);
+
+  font-size: 11px;
+}
+
+
+/* ================= PAYMENT ================= */
+
+.payment {
+  display: grid;
+
+  grid-template-columns: 1fr 210px;
+
+  gap: 30px;
+
+  padding: 25px;
+
+  background: var(--navy);
+
+  color: white;
+}
+
+.payment-left {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+}
+
+.payment-left span {
+  color: #8fa6bf;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.payment-left strong {
+  margin-top: 5px;
+
+  font-family: "Barlow Condensed";
+
+  font-size: 48px;
+}
+
+.payment-left p {
+  max-width: 280px;
+
+  margin-top: 10px;
+
+  color: #91a5bb;
+
+  font-size: 9px;
+
+  line-height: 1.6;
+}
+
+.payment-number {
+  margin-top: 20px;
+
+  color: #7f96ad;
+
+  font-size: 7px;
+
+  letter-spacing: 1px;
+}
+
+.payment-number b {
+  display: block;
+
+  margin-top: 4px;
+
+  color: white;
+
+  font-size: 11px;
+
+  letter-spacing: 0;
+}
+
+.qris {
+  padding: 8px;
+  background: white;
+}
+
+.qris img {
+  width: 100%;
+  display: block;
+}
+
+
+/* ================= UPLOAD ================= */
+
+.upload {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 22px;
+}
+
+.upload input {
+  width: 100%;
+
+  padding: 13px;
+
+  border: 1px dashed #b9c5d1;
+
+  background: #f8fafc;
+
+  font-size: 10px;
+}
+
+
+/* ================= AGREEMENT ================= */
+
+.agreement {
+  padding: 20px 0;
+
+  border-top: 1px solid var(--line);
+}
+
+.agreement label {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  color: #6b7d91;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+}
+
+.agreement input {
+  accent-color: var(--navy);
+}
+
+
+/* ================= SUBMIT ================= */
+
+.submit {
+  width: 100%;
+  height: 58px;
+
+  border: 0;
+
+  background: var(--navy);
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  transition: .25s;
+}
+
+.submit:hover {
+  background: var(--navy-2);
+
+  transform: translateY(-1px);
+}
+
+.submit b {
+  float: right;
+
+  margin-right: 20px;
+
+  font-size: 16px;
+}
+
+
+/* ================= SIMPLE SUCCESS ================= */
+
+.success-page {
+  display: none;
+
+  min-height: 100vh;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 20px;
+
+  background: var(--navy);
+
+  color: white;
+
+  text-align: center;
+}
+
+.success-page.show {
+  display: flex;
+
+  animation: successIn .5s ease forwards;
+}
+
+.success-content {
+  width: min(430px, 100%);
+}
+
+.success-logo {
+  width: 150px;
+  height: 150px;
+
+  object-fit: contain;
+
+  margin-bottom: 10px;
+
+  animation: logoIn .6s ease forwards;
+}
+
+.success-label {
+  display: inline-block;
+
+  padding: 6px 10px;
+
+  background: white;
+
+  color: var(--navy);
+
+  font-size: 7px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+}
+
+.success-content h2 {
+  margin-top: 22px;
+
+  font-family: "Barlow Condensed";
+
+  font-size: 65px;
+
+  line-height: .78;
+
+  font-weight: 900;
+
+  letter-spacing: -1px;
+}
+
+.success-content h2 span {
+  color: #9eb1c6;
+}
+
+.success-content p {
+  max-width: 360px;
+
+  margin: 22px auto;
+
+  color: #91a5bb;
+
+  font-size: 10px;
+
+  line-height: 1.7;
+}
+
+
+/* ================= WHATSAPP ================= */
+
+.wa-button {
+  width: 100%;
+
+  min-height: 65px;
+
+  padding: 0 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  background: white;
+
+  color: var(--navy);
+
+  text-align: left;
+
+  transition: .2s;
+}
+
+.wa-button:hover {
+  transform: translateY(-3px);
+}
+
+.wa-button i {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #25D366;
+
+  color: white;
+
+  font-size: 21px;
+}
+
+.wa-button div {
+  flex: 1;
+}
+
+.wa-button small {
+  display: block;
+
+  color: #7b8da1;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.wa-button strong {
+  display: block;
+
+  margin-top: 3px;
+
+  font-family: "Barlow Condensed";
+
+  font-size: 20px;
+}
+
+.wa-button b {
+  font-size: 20px;
+}
+
+.success-number {
+  margin-top: 15px;
+
+  color: #71879f;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+}
+
+@keyframes successIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+@keyframes logoIn {
+
+  from {
+    opacity: 0;
+    transform: scale(.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+  padding: 35px 0;
+
+  background: var(--dark);
+}
+
+.footer-inner {
+  width: min(1180px, calc(100% - 40px));
+
+  margin: auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.footer-inner b {
+  display: block;
+
+  color: white;
+
+  font-family: "Barlow Condensed";
+
+  font-size: 22px;
+}
+
+.footer-inner span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #63768b;
+
+  font-size: 7px;
+
+  letter-spacing: 1px;
+}
+
+.admin {
+  color: #63768b;
+
+  font-size: 7px;
+
+  text-align: right;
+}
+
+.admin strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: white;
+
+  font-size: 10px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 650px) {
+
+  .nav-inner,
+  .hero-content,
+  .footer-inner {
+    width: calc(100% - 28px);
+  }
+
+  .navbar {
+    height: 68px;
+  }
+
+  .brand img {
+    width: 62px;
+    height: 62px;
+  }
+
+  .hero {
+    min-height: 560px;
+  }
+
+  .hero-logo {
+    width: 190px;
+    height: 190px;
+
+    margin-left: -12px;
+  }
+
+  .hero h1 {
+    font-size: 65px;
+  }
+
+  .hero-info div {
+    min-width: auto;
+
+    padding-right: 14px;
+    margin-right: 14px;
+  }
+
+  .hero-info strong {
+    font-size: 20px;
+  }
+
+  .registration {
+    padding: 65px 0;
+  }
+
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  .heading h2 {
+    font-size: 55px;
+  }
+
+  .form-section {
+    grid-template-columns: 30px 1fr;
+    gap: 10px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .input-group.full {
+    grid-column: auto;
+  }
+
+  .payment {
+    grid-template-columns: 1fr;
+  }
+
+  .qris {
+    width: 210px;
+  }
+
+  .footer-inner {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 25px;
+  }
+
+  .admin {
+    text-align: left;
+  }
+
+  .success-logo {
+    width: 130px;
+    height: 130px;
+  }
+
+  .success-content h2 {
+    font-size: 58px;
+  }
+
+}
